@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '1.2.1'
+}
+
+allprojects {
+    apply from: "$rootDir/dependencies.gradle"
+
+    group 'com.sabre'
+    version '1.0'
+
+    repositories {
+        mavenCentral()
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
+dependencies {
+    compileOnly             lombok.lombok
+    annotationProcessor     lombok.lombok
+    testImplementation      test.junitJupiterApi
+    testImplementation      test.junitJupiterEngine
+    testImplementation      test.mockito
+    testImplementation      test.mockitoJupiter
+    testImplementation      test.assertJ
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version = '2021.1.1'
+}
+patchPluginXml {
+    changeNotes = """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}

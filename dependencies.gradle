@@ -1,0 +1,20 @@
+def versions = [:]
+versions.lombok                 = '1.18.22'
+versions.junit                  = '5.8.1'
+versions.mockito                = '3.12.4'
+versions.assertJ                = '3.21.0'
+ext.versions = versions
+
+ext {
+    lombok = [
+            lombok             : "org.projectlombok:lombok:${versions.lombok}"
+    ]
+
+    test = [
+            junitJupiterApi     : "org.junit.jupiter:junit-jupiter-api:${versions.junit}",
+            junitJupiterEngine  : "org.junit.jupiter:junit-jupiter-engine:${versions.junit}",
+            mockito             : "org.mockito:mockito-core:${versions.mockito}",
+            mockitoJupiter      : "org.mockito:mockito-junit-jupiter:${versions.mockito}",
+            assertJ             : "org.assertj:assertj-core:${versions.assertJ}"
+    ]
+}
