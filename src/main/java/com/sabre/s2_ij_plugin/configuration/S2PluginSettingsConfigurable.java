@@ -5,6 +5,7 @@ import org.jetbrains.annotations.Nls;
 
 import javax.annotation.Nullable;
 import javax.swing.*;
+import java.util.Objects;
 
 public class S2PluginSettingsConfigurable implements Configurable {
 
@@ -32,7 +33,7 @@ public class S2PluginSettingsConfigurable implements Configurable {
     public boolean isModified() {
         var settings = S2PluginSettingsState.getInstance();
         var modified = !s2PluginSettingsComponent.getDockerHostUrl().equals(settings.dockerHostUrl);
-//        modified |= s2PluginSettingsComponent.g() != settings.ideaStatus;
+        modified |= !Objects.equals(s2PluginSettingsComponent.getS2ContainerName(), settings.s2ContainerName);
         return modified;
     }
 
@@ -40,12 +41,14 @@ public class S2PluginSettingsConfigurable implements Configurable {
     public void apply() {
         var settings = S2PluginSettingsState.getInstance();
         settings.dockerHostUrl = s2PluginSettingsComponent.getDockerHostUrl();
+        settings.s2ContainerName = s2PluginSettingsComponent.getS2ContainerName();
     }
 
     @Override
     public void reset() {
         var settings = S2PluginSettingsState.getInstance();
         s2PluginSettingsComponent.setDockerHostUrl(settings.dockerHostUrl);
+        s2PluginSettingsComponent.setS2ContainerName(settings.s2ContainerName);
     }
 
     @Override
