@@ -24,6 +24,10 @@
                     factoryClass="com.sabre.s2_ij_plugin.S2PluginToolWindowFactory"
                     canCloseContents="true"
         />
+        <applicationService serviceImplementation="com.sabre.s2_ij_plugin.configuration.S2PluginSettingsState"/>
+        <applicationConfigurable parentId="tools" instance="com.sabre.s2_ij_plugin.configuration.S2PluginSettingsConfigurable"
+                                 id="om.sabre.s2_ij_plugin.configuration.S2PluginSettingsConfigurable"
+                                 displayName="Sabre2 Plugin Configuration"/>
     </extensions>
 
     <actions>
