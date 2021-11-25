@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 )
 public class S2PluginSettingsState implements PersistentStateComponent<S2PluginSettingsState> {
 
-    public String dockerHostUrl = "tcp://127.0.0.1:2376";
+    public String dockerHostUrl = "unix:///var/run/docker.sock";
     public String s2ContainerName = "s2:latest";
 
     public static S2PluginSettingsState getInstance() {

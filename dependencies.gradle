@@ -3,11 +3,18 @@ versions.lombok                 = '1.18.22'
 versions.junit                  = '5.8.1'
 versions.mockito                = '3.12.4'
 versions.assertJ                = '3.21.0'
+versions.docker                 = '3.2.12'
 ext.versions = versions
 
 ext {
     lombok = [
             lombok             : "org.projectlombok:lombok:${versions.lombok}"
+    ]
+
+    docker = [
+            client             : "com.github.docker-java:docker-java:${versions.docker}",
+            core               : "com.github.docker-java:docker-java-core:${versions.docker}",
+            transport          : "com.github.docker-java:docker-java-transport-zerodep:${versions.docker}"
     ]
 
     test = [

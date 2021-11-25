@@ -18,7 +18,7 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="Sabre2"
+        <toolWindow id="s2-plugin-tool-window"
                     icon="AllIcons.General.Modified"
                     anchor="bottom"
                     factoryClass="com.sabre.s2_ij_plugin.S2PluginToolWindowFactory"
@@ -32,9 +32,8 @@
 
     <actions>
         <group id="org.intellij.sdk.action.GroupedActions" text="Sabre2" popup="true">
-            <action id="com.sabre.s2_ij_plugin.action.S2StatusAction"
+            <action id="S2StatusAction"
                     class="com.sabre.s2_ij_plugin.action.S2StatusAction" text="pwd">
-                <add-to-group group-id="org.intellij.sdk.action.GroupedActions" anchor="last"/>
             </action>
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>

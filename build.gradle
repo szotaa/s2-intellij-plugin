@@ -16,11 +16,19 @@ allprojects {
     test {
         useJUnitPlatform()
     }
+
+    configurations {
+        //conflicts with IJ internal dependency
+        runtime.exclude group: 'org.slf4j', module: 'slf4j-api'
+    }
 }
 
 dependencies {
     compileOnly             lombok.lombok
     annotationProcessor     lombok.lombok
+    implementation          docker.client
+    implementation          docker.core
+    implementation          docker.transport
     testImplementation      test.junitJupiterApi
     testImplementation      test.junitJupiterEngine
     testImplementation      test.mockito
