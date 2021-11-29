@@ -9,6 +9,37 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
+/**
+ * <p>This class stores configurable properties for S2-IJ-Plugin. All properties are persisted between IDE restarts.</p>
+ *
+ * <br>
+ * <p>Accessing properties:</p>
+ *
+ *
+ * <p>Use S2PluginSettingsState.getInstance() static method, access its public fields</p>
+ *
+ *
+ * <br>
+ * <p>Extending configuration with new properties:</p>
+ * <ol>
+ *      <li>
+ *          Add new public field in S2PluginSettingsState class.
+ *          Assigning value in class will only serve as property default since all
+ *          variables are later loaded from local .xml file via S2PluginSettingsState.loadState method
+ *      </li>
+ *      <li>
+ *        Add new Swing component in S2PluginSettingsComponent and bind it to myMainPanel in constructor.
+ *        Remember to add necessary accessors which will update/read value inside Swing components
+ *      </li>
+ *      <li>
+ *          Add your new properties in methods isModified, apply, reset from S2PluginSettingsConfigurable class,
+ *          it should be self explanatory if you look into its source
+ *      </li>
+ * </ol>
+ *
+ *
+ */
+
 @State(
         name = "com.sabre.s2_ij_plugin.configuration.S2PluginSettingState",
         storages = @Storage("S2PluginSettings.xml")

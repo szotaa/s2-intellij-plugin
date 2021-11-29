@@ -12,6 +12,10 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * redirects docker container stdout and stderr to your IJ console view visible in s2 tool window
+ */
+
 @RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 class BlockingExecResultCallback implements ResultCallback<Frame> {
 
@@ -41,6 +45,10 @@ class BlockingExecResultCallback implements ResultCallback<Frame> {
     public void close() throws IOException {
         countDownLatch.countDown();
     }
+
+    /**
+     * block until command finished executing
+     */
 
     public void await() throws InterruptedException {
         countDownLatch.await();
